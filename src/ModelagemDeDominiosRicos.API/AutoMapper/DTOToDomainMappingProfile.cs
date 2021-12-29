@@ -3,7 +3,7 @@ using ModelagemDeDominiosRicos.Catalogo.Application.DTOs;
 using ModelagemDeDominiosRicos.Catalogo.Domain;
 using ModelagemDeDominiosRicos.Catalogo.Domain.ValueObjects;
 
-namespace ModelagemDeDominiosRicos.Catalogo.Application.AutoMapper
+namespace ModelagemDeDominiosRicos.API.AutoMapper
 {
     public class DTOToDomainMappingProfile : Profile
     {
@@ -11,7 +11,7 @@ namespace ModelagemDeDominiosRicos.Catalogo.Application.AutoMapper
         {
             CreateMap<ProdutoDTO, Produto>()
                 .ConstructUsing(p => new Produto(p.CategoriaId, p.Nome, p.Descricao, p.Ativo,
-                                            p.Valor, p.DataCadastro, p.Imagem, 
+                                            p.Valor, p.DataCadastro, p.Imagem,
                                             new Dimensoes(p.Altura, p.Largura, p.Profundidade)));
 
             CreateMap<CategoriaDTO, Categoria>()

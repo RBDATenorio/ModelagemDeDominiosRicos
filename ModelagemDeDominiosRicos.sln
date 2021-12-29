@@ -36,6 +36,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelagemDeDominiosRicos.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelagemDeDominiosRicos.Catalogo.Application", "src\ModelagemDeDominiosRicos.Catalogo.Application\ModelagemDeDominiosRicos.Catalogo.Application.csproj", "{BF414847-E507-40DC-9B59-B4B4D344666E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelagemDeDominiosRicos.API", "src\ModelagemDeDominiosRicos.API\ModelagemDeDominiosRicos.API.csproj", "{493988CD-3320-4792-8DF2-60E98DC3AB5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{BF414847-E507-40DC-9B59-B4B4D344666E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF414847-E507-40DC-9B59-B4B4D344666E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF414847-E507-40DC-9B59-B4B4D344666E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{493988CD-3320-4792-8DF2-60E98DC3AB5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{493988CD-3320-4792-8DF2-60E98DC3AB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{493988CD-3320-4792-8DF2-60E98DC3AB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{493988CD-3320-4792-8DF2-60E98DC3AB5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +86,7 @@ Global
 		{CF063FD8-1E28-48F6-8C4F-F856EA4279DA} = {88CF9395-56EB-4A0B-B307-DEBB663C756A}
 		{FB869731-2EF5-4897-AEB6-54A4D8813723} = {ABA6E102-CF8E-49D0-9CF2-B20415C8425E}
 		{BF414847-E507-40DC-9B59-B4B4D344666E} = {ABA6E102-CF8E-49D0-9CF2-B20415C8425E}
+		{493988CD-3320-4792-8DF2-60E98DC3AB5F} = {ABA6E102-CF8E-49D0-9CF2-B20415C8425E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34BA3C58-0C21-49CD-8A9E-099EFDFBFF3B}

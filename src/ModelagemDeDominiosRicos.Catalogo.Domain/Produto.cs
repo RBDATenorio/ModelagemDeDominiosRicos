@@ -17,6 +17,7 @@ namespace ModelagemDeDominiosRicos.Catalogo.Domain
         public int QuantidadeEmEstoque { get; private set; }
         public Categoria Categoria { get; private set; }
         
+        protected Produto() { }
         public Produto(Guid categoriaId, string nome, string descricao, 
                         bool ativo, decimal valor, DateTime dataCadastro, 
                         string imagem, Dimensoes dimensoes)

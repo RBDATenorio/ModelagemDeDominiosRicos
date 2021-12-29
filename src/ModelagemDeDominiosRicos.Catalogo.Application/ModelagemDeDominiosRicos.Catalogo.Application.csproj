@@ -4,4 +4,13 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Catalogo.Domain\ModelagemDeDominiosRicos.Catalogo.Domain.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Data\ModelagemDeDominiosRicos.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="10.1.1" />
+  </ItemGroup>
+
 </Project>
