@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Catalogo.Application\ModelagemDeDominiosRicos.Catalogo.Application.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Catalogo.Domain\ModelagemDeDominiosRicos.Catalogo.Domain.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Core\ModelagemDeDominiosRicos.Core.csproj" />

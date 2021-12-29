@@ -19,11 +19,6 @@ namespace ModelagemDeDominiosRicos.Data.Repository
         }
         public IUnitOfWork UnitOfWork => _context;
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<Produto>> ObterTodos()
         {
             return await _context.Produtos.AsNoTracking().ToListAsync();
