@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using ModelagemDeDominiosRicos.Catalogo.Application.DTOs;
 using ModelagemDeDominiosRicos.Catalogo.Application.Services;
+using ModelagemDeDominiosRicos.Catalogo.Domain;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,22 +14,64 @@ namespace ModelagemDeDominiosRicos.API.Controllers.Admin
     public class AdminProdutosController : Controller
     {
         private readonly IProdutoAppService _produtoAppService;
-        private readonly IMapper _mapper;
-        public AdminProdutosController(IProdutoAppService produtoAppService,
-                                        IMapper mapper)
+        public AdminProdutosController(IProdutoAppService produtoAppService)
         {
             _produtoAppService = produtoAppService;
-            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> ObterTodos()
         {
-            var produtos = await _produtoAppService.ObterTodos();
+            return Ok(await _produtoAppService.ObterTodos());
+        }
 
-            produtos = _mapper.Map<IEnumerable<ProdutoDTO>>(produtos);
+        [HttpGet]
+        [Route("detalhe/{id}")]
+        public async Task<IActionResult> ObterPorId(Guid id)
+        {
+            var produto = await _produtoAppService.ObterPorId(id);
 
-            return Ok(produtos);
+            if (produto is null) return NotFound("Produto não encontrado");
+
+            return Ok(produto);
+        }
+
+        [HttpPost]
+        [Route("cadastrar-produto")]
+        public async Task<IActionResult> CadastrarProduto(ProdutoDTO produtoDTO)
+        {
+            if (!ModelState.IsValid) return BadRequest();
+
+            await _produtoAppService.AdicionarProduto(produtoDTO);
+
+            return Created($"api/AdminProdutos/{produtoDTO.Id}", produtoDTO);
+        }
+
+        [HttpPost]
+        [Route("cadastrar-categoria")]
+        public async Task<IActionResult> CadastrarCategoria(CategoriaDTO categoriaDTO)
+        {
+            if (!ModelState.IsValid) return BadRequest();
+
+            await _produtoAppService.AdicionarCategoria(categoriaDTO);
+
+            return Created("", categoriaDTO);
+        }
+
+        [HttpPost]
+        [Route("atualizar-estoque")]
+        public async Task<IActionResult> AtualizarEstoque(Guid id, int quantidade)
+        {
+            if(quantidade < 0)
+            {
+                await _produtoAppService.DebitarEstoque(id, quantidade);
+            }
+            else
+            {
+                await _produtoAppService.ReporEstoque(id, quantidade);
+            }
+
+            return Ok("Estoque atualizado com sucesso!");
         }
     }
 }

@@ -52,6 +52,14 @@ namespace ModelagemDeDominiosRicos.Catalogo.Application.Services
             await _repository.UnitOfWork.Commit();
         }
 
+        public async Task AdicionarCategoria(CategoriaDTO categoriaDTO)
+        {
+            var produto = _mapper.Map<Categoria>(categoriaDTO);
+            _repository.Adicionar(produto);
+
+            await _repository.UnitOfWork.Commit();
+        }
+
         public async Task AtualizarProduto(ProdutoDTO produtoDTO)
         {
             var produto = _mapper.Map<Produto>(produtoDTO);
