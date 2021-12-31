@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ModelagemDeDominiosRicos.API
+namespace ModelagemDeDominiosRicos.WebAPI
 {
     public class Program
     {

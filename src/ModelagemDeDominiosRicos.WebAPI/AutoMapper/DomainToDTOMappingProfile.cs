@@ -2,7 +2,7 @@
 using ModelagemDeDominiosRicos.Catalogo.Application.DTOs;
 using ModelagemDeDominiosRicos.Catalogo.Domain;
 
-namespace ModelagemDeDominiosRicos.API.AutoMapper
+namespace ModelagemDeDominiosRicos.WebAPI.AutoMapper
 {
     public class DomainToDTOMappingProfile : Profile
     {

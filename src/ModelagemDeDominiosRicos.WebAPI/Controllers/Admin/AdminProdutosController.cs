@@ -1,13 +1,10 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ModelagemDeDominiosRicos.Catalogo.Application.DTOs;
 using ModelagemDeDominiosRicos.Catalogo.Application.Services;
-using ModelagemDeDominiosRicos.Catalogo.Domain;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ModelagemDeDominiosRicos.API.Controllers.Admin
+namespace ModelagemDeDominiosRicos.WebAPI.Controllers.Admin
 {
     [ApiController]
     [Route("api/[controller]")]

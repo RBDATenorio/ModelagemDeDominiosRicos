@@ -3,7 +3,7 @@ using ModelagemDeDominiosRicos.Catalogo.Application.DTOs;
 using ModelagemDeDominiosRicos.Catalogo.Domain;
 using ModelagemDeDominiosRicos.Catalogo.Domain.ValueObjects;
 
-namespace ModelagemDeDominiosRicos.API.AutoMapper
+namespace ModelagemDeDominiosRicos.WebAPI.AutoMapper
 {
     public class DTOToDomainMappingProfile : Profile
     {

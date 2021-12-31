@@ -5,10 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using ModelagemDeDominiosRicos.API.DependencyInjection;
+using ModelagemDeDominiosRicos.WebAPI.DependencyInjection;
 using ModelagemDeDominiosRicos.Data;
 
-namespace ModelagemDeDominiosRicos.API
+namespace ModelagemDeDominiosRicos.WebAPI
 {
     public class Startup
     {

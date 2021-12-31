@@ -1,19 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="automapper" Version="10.1.1" />
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
-    <PackageReference Include="mediatr.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.13">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+	<PackageReference Include="mediatr.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+	<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +16,9 @@
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Catalogo.Domain\ModelagemDeDominiosRicos.Catalogo.Domain.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Core\ModelagemDeDominiosRicos.Core.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Data\ModelagemDeDominiosRicos.Data.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Vendas.Application\ModelagemDeDominiosRicos.Vendas.Application.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Vendas.Data\ModelagemDeDominiosRicos.Vendas.Data.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Vendas.Domain\ModelagemDeDominiosRicos.Vendas.Domain.csproj" />
   </ItemGroup>
 
 </Project>
