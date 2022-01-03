@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using ModelagemDeDominiosRicos.Core.Communication;
+using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using ModelagemDeDominiosRicos.Vendas.Domain;
 using System.Linq;
 using System.Threading;
@@ -9,10 +11,12 @@ namespace ModelagemDeDominiosRicos.Vendas.Application.Commands
     public class PedidoCommandHandler : IRequestHandler<AdicionarItemPedidoCommand, bool>
     {
         private readonly IPedidoRepository _pedidoRepository;
-
-        public PedidoCommandHandler(IPedidoRepository pedidoRepository)
+        private readonly IMediatrHandler _mediatorHandler;
+        public PedidoCommandHandler(IPedidoRepository pedidoRepository,
+                                    IMediatrHandler mediatorHandler)
         {
             _pedidoRepository = pedidoRepository;
+            _mediatorHandler = mediatorHandler;
         }
         public async Task<bool> Handle(AdicionarItemPedidoCommand message, CancellationToken cancellationToken)
         {
@@ -53,7 +57,7 @@ namespace ModelagemDeDominiosRicos.Vendas.Application.Commands
 
             foreach(var erro in message.ValidationResult.Errors)
             {
-                // lancar evento de erro aqui
+                _mediatorHandler.PublicarNotificacao(new DomainNotification(message.MessageType, erro.ErrorMessage));
             }
 
             return false;

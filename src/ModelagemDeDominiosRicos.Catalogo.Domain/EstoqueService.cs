@@ -1,6 +1,6 @@
 ﻿using ModelagemDeDominiosRicos.Catalogo.Domain.Events;
 using ModelagemDeDominiosRicos.Catalogo.Domain.Interfaces;
-using ModelagemDeDominiosRicos.Core.Bus;
+using ModelagemDeDominiosRicos.Core.Communication;
 using System;
 using System.Threading.Tasks;
 

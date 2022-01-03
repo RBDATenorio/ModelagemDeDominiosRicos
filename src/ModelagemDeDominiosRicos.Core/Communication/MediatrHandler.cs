@@ -1,8 +1,9 @@
 ﻿using MediatR;
 using ModelagemDeDominiosRicos.Core.Messages;
+using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using System.Threading.Tasks;
 
-namespace ModelagemDeDominiosRicos.Core.Bus
+namespace ModelagemDeDominiosRicos.Core.Communication
 {
     public class MediatrHandler : IMediatrHandler
     {
@@ -21,6 +22,11 @@ namespace ModelagemDeDominiosRicos.Core.Bus
         public async Task PublicarEvento<T>(T evento) where T : Event
         {
             await _mediator.Publish(evento);
+        }
+
+        public async Task PublicarNotificacao<T>(T notificacao) where T : DomainNotification
+        {
+            await _mediator.Publish(notificacao);
         }
     }
 }

@@ -1,7 +1,6 @@
-﻿using ModelagemDeDominiosRicos.Core.Messages;
-using System;
+﻿using System;
 
-namespace ModelagemDeDominiosRicos.Core.DomainObjects
+namespace ModelagemDeDominiosRicos.Core.Messages.CommonMessages.DomainEvents
 {
     public class DomainEvents : Event
     {

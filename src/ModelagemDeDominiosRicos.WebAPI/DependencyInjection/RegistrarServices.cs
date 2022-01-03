@@ -4,7 +4,8 @@ using ModelagemDeDominiosRicos.Catalogo.Application.Services;
 using ModelagemDeDominiosRicos.Catalogo.Domain;
 using ModelagemDeDominiosRicos.Catalogo.Domain.Events;
 using ModelagemDeDominiosRicos.Catalogo.Domain.Interfaces;
-using ModelagemDeDominiosRicos.Core.Bus;
+using ModelagemDeDominiosRicos.Core.Communication;
+using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using ModelagemDeDominiosRicos.Data.Repository;
 using ModelagemDeDominiosRicos.Vendas.Application.Commands;
 using ModelagemDeDominiosRicos.Vendas.Data.Repository;
@@ -22,7 +23,8 @@ namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
 
             services.AddScoped<IMediatrHandler, MediatrHandler>();
             services.AddScoped<INotificationHandler<ProdutoAbaixoEstoqueEvents>, ProdutoEventHandler>();
-            
+            services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
+
             // Catalogo
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IProdutoAppService, ProdutoAppService>();

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ModelagemDeDominiosRicos.Core.Bus;
+using ModelagemDeDominiosRicos.Core.Communication;
 using ModelagemDeDominiosRicos.Core.Data;
 using ModelagemDeDominiosRicos.Vendas.Domain;
 using System;

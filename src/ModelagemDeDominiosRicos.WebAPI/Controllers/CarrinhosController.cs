@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using ModelagemDeDominiosRicos.Catalogo.Application.Services;
-using ModelagemDeDominiosRicos.Core.Bus;
+using ModelagemDeDominiosRicos.Core.Communication;
+using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using ModelagemDeDominiosRicos.Vendas.Application.Commands;
 using System;
 using System.Threading.Tasks;
@@ -14,8 +16,9 @@ namespace ModelagemDeDominiosRicos.WebAPI.Controllers
         private readonly IProdutoAppService _produtoAppService;
         private readonly IMediatrHandler _mediatrHandler;
 
-        public CarrinhosController(IProdutoAppService produtoAppService,
-                                   IMediatrHandler mediatrHandler)
+        public CarrinhosController(INotificationHandler<DomainNotification> notifications,
+                                   IProdutoAppService produtoAppService,
+                                   IMediatrHandler mediatrHandler) : base(notifications, mediatrHandler)
         {
             _produtoAppService = produtoAppService;
             _mediatrHandler = mediatrHandler;
@@ -36,6 +39,12 @@ namespace ModelagemDeDominiosRicos.WebAPI.Controllers
 
             var command = new AdicionarItemPedidoCommand(ClienteId, produto.Id, produto.Nome, produto.QuantidadeEmEstoque, produto.Valor);
             await _mediatrHandler.EnviarCommand(command);
+
+            if (!OperacaoValida())
+            {
+                return BadRequest(_notifications.ObterMensagensDeNotificacoes());
+            }
+
             return Ok();
         }
     }

@@ -1,4 +1,4 @@
-﻿using ModelagemDeDominiosRicos.Core.DomainObjects;
+﻿using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.DomainEvents;
 using System;
 
 namespace ModelagemDeDominiosRicos.Catalogo.Domain.Events
