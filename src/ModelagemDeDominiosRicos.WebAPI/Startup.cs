@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ModelagemDeDominiosRicos.WebAPI.DependencyInjection;
 using ModelagemDeDominiosRicos.Data;
+using ModelagemDeDominiosRicos.Vendas.Data;
 
 namespace ModelagemDeDominiosRicos.WebAPI
 {
@@ -32,6 +33,10 @@ namespace ModelagemDeDominiosRicos.WebAPI
             services.AddDbContext<CatalogoContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            services.AddDbContext<VendasContext>(options =>
+                    options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
+);
             services.ResolverDependencias();
         }
 

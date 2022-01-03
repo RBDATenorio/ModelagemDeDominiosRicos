@@ -9,7 +9,7 @@ namespace ModelagemDeDominiosRicos.Data
 {
     public class CatalogoContext : DbContext, IUnitOfWork
     {
-        public CatalogoContext(DbContextOptions options) : base(options) { }
+        public CatalogoContext(DbContextOptions<CatalogoContext> options) : base(options) { }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
 

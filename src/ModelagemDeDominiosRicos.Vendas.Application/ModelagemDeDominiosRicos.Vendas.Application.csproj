@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Core\ModelagemDeDominiosRicos.Core.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Data\ModelagemDeDominiosRicos.Data.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Vendas.Domain\ModelagemDeDominiosRicos.Vendas.Domain.csproj" />
   </ItemGroup>
 
 </Project>

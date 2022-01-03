@@ -13,6 +13,11 @@ namespace ModelagemDeDominiosRicos.Core.Bus
             _mediator = mediator;
         }
 
+        public async Task<bool> EnviarCommand<T>(T command) where T : Command
+        {
+            return await _mediator.Send(command);
+        }
+
         public async Task PublicarEvento<T>(T evento) where T : Event
         {
             await _mediator.Publish(evento);

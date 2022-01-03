@@ -7,6 +7,8 @@ using ModelagemDeDominiosRicos.Catalogo.Domain.Interfaces;
 using ModelagemDeDominiosRicos.Core.Bus;
 using ModelagemDeDominiosRicos.Data.Repository;
 using ModelagemDeDominiosRicos.Vendas.Application.Commands;
+using ModelagemDeDominiosRicos.Vendas.Data.Repository;
+using ModelagemDeDominiosRicos.Vendas.Domain;
 
 namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
 {
@@ -28,6 +30,7 @@ namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
 
             // Vendas
             services.AddScoped<IRequestHandler<AdicionarItemPedidoCommand, bool>, PedidoCommandHandler>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
             
         }
     }
