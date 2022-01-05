@@ -9,6 +9,7 @@ using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using ModelagemDeDominiosRicos.Data.Repository;
 using ModelagemDeDominiosRicos.Vendas.Application.Commands;
 using ModelagemDeDominiosRicos.Vendas.Application.Events;
+using ModelagemDeDominiosRicos.Vendas.Application.Queries;
 using ModelagemDeDominiosRicos.Vendas.Data.Repository;
 using ModelagemDeDominiosRicos.Vendas.Domain;
 
@@ -37,6 +38,7 @@ namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
             services.AddScoped<INotificationHandler<PedidoAtualizadoEvent>, PedidoEventHandler>();
             services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
             services.AddScoped<INotificationHandler<PedidoRascunhoItemAdicionadoEvent>, PedidoEventHandler>();
+            services.AddScoped<IPedidoQueries, PedidoQueries>();
         }
     }
 }

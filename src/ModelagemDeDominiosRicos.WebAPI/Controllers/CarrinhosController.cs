@@ -4,6 +4,7 @@ using ModelagemDeDominiosRicos.Catalogo.Application.Services;
 using ModelagemDeDominiosRicos.Core.Communication;
 using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using ModelagemDeDominiosRicos.Vendas.Application.Commands;
+using ModelagemDeDominiosRicos.Vendas.Application.Queries;
 using System;
 using System.Threading.Tasks;
 
@@ -14,13 +15,16 @@ namespace ModelagemDeDominiosRicos.WebAPI.Controllers
     public class CarrinhosController : BaseController
     {
         private readonly IProdutoAppService _produtoAppService;
+        private readonly IPedidoQueries _pedidoQueries;
         private readonly IMediatrHandler _mediatrHandler;
 
         public CarrinhosController(INotificationHandler<DomainNotification> notifications,
                                    IProdutoAppService produtoAppService,
+                                   IPedidoQueries pedidoQueries,
                                    IMediatrHandler mediatrHandler) : base(notifications, mediatrHandler)
         {
             _produtoAppService = produtoAppService;
+            _pedidoQueries = pedidoQueries;
             _mediatrHandler = mediatrHandler;
         }
 
@@ -46,6 +50,18 @@ namespace ModelagemDeDominiosRicos.WebAPI.Controllers
             }
 
             return Ok();
+        }
+    
+        [HttpGet]
+        [Route("meus-pedidos")]
+        public async Task<IActionResult> ObterPedidos()
+        {
+            var pedidos = await _pedidoQueries.ObterCarrinhoCliente(ClienteId);
+            
+            if (pedidos is null) return NotFound("Nenhum pedido para esse cliente");
+            
+            return Ok(pedidos);
+
         }
     }
 }
