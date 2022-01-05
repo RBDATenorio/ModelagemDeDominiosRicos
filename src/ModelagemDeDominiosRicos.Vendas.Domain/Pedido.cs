@@ -85,7 +85,7 @@ namespace ModelagemDeDominiosRicos.Vendas.Domain
 
         public bool PedidoItemExistente(PedidoItem item)
         {
-            return _pedidoItems.Any(p => p.ProdutoId == item.ProdutoId);
+            return _pedidoItems.Any(p => p.ProdutoId == item?.ProdutoId);
         }
 
         public void AdicionarItem(PedidoItem item)
