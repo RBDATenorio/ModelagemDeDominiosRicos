@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using ModelagemDeDominiosRicos.Core.Communication;
 using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
+using ModelagemDeDominiosRicos.Vendas.Application.Events;
 using ModelagemDeDominiosRicos.Vendas.Domain;
 using System.Linq;
 using System.Threading;
@@ -32,6 +33,7 @@ namespace ModelagemDeDominiosRicos.Vendas.Application.Commands
                 pedido.AdicionarItem(pedidoItem);
 
                 _pedidoRepository.Adicionar(pedido);
+                pedido.AdicionarEvento(new PedidoRascunhoIniciadoEvent(message.ClientId, message.ProdutoId));
             }
             else
             {
@@ -46,8 +48,11 @@ namespace ModelagemDeDominiosRicos.Vendas.Application.Commands
                 {
                     _pedidoRepository.AdicionarItem(pedidoItem);
                 }
+
+                pedido.AdicionarEvento(new PedidoAtualizadoEvent(pedido.ClienteId, pedido.Id, pedido.ValorTotal));
             }
 
+            pedido.AdicionarEvento(new PedidoRascunhoItemAdicionadoEvent(pedido.ClienteId, pedido.Id, message.ProdutoId, message.ValorUnitario, message.Quantidade));
             return await _pedidoRepository.UnitOfWork.Commit();
         }
 

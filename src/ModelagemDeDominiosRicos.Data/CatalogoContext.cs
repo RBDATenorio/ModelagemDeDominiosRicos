@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ModelagemDeDominiosRicos.Catalogo.Domain;
 using ModelagemDeDominiosRicos.Core.Data;
+using ModelagemDeDominiosRicos.Core.Messages;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace ModelagemDeDominiosRicos.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CatalogoContext).Assembly);
-
+            modelBuilder.Ignore<Event>();
             base.OnModelCreating(modelBuilder);
         }
 

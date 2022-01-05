@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ModelagemDeDominiosRicos.Core.Communication;
 using ModelagemDeDominiosRicos.Core.Data;
+using ModelagemDeDominiosRicos.Core.Messages;
 using ModelagemDeDominiosRicos.Vendas.Domain;
 using System;
 using System.Collections.Generic;
@@ -39,9 +40,20 @@ namespace ModelagemDeDominiosRicos.Vendas.Data
             }
 
             var sucesso = await base.SaveChangesAsync() > 0;
-            //if (sucesso) await _mediatrHandler.PublicarEvento(this);
+            if (sucesso) await _mediatrHandler.PublicarEventos(this);
 
             return sucesso;
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Ignore<Event>();
+
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(VendasContext).Assembly);
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
