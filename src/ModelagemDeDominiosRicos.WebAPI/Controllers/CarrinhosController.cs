@@ -5,6 +5,7 @@ using ModelagemDeDominiosRicos.Core.Communication;
 using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using ModelagemDeDominiosRicos.Vendas.Application.Commands;
 using ModelagemDeDominiosRicos.Vendas.Application.Queries;
+using ModelagemDeDominiosRicos.Vendas.Application.Queries.DTOs;
 using System;
 using System.Threading.Tasks;
 
@@ -115,6 +116,26 @@ namespace ModelagemDeDominiosRicos.WebAPI.Controllers
             }
 
             return NoContent();
+        }
+
+        [HttpPost]
+        [Route("iniciar-pedido")]
+        public async Task<IActionResult> IniciarPedido(CarrinhoDTO carrinhoDTO)
+        {
+            var carrinho = await _pedidoQueries.ObterCarrinhoCliente(ClienteId);
+
+            var command = new IniciarPedidoCommand(carrinho.PedidoId, ClienteId,
+                              carrinho.ValorTotal, carrinhoDTO.Pagamento.NomeCartao,
+                              carrinhoDTO.Pagamento.NomeCartao, carrinho.Pagamento.ExpiracaoCartao, carrinhoDTO.Pagamento.CvvCartao);
+
+            await _mediatrHandler.EnviarCommand(command);
+
+            if (!OperacaoValida())
+            {
+                return BadRequest(_notifications.ObterMensagensDeNotificacoes());
+            }
+
+            return Ok();
         }
     }
 }
