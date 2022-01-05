@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using ModelagemDeDominiosRicos.WebAPI.DependencyInjection;
-using ModelagemDeDominiosRicos.Data;
+using ModelagemDeDominiosRicos.Catalogo.Data;
 using ModelagemDeDominiosRicos.Vendas.Data;
 
 namespace ModelagemDeDominiosRicos.WebAPI

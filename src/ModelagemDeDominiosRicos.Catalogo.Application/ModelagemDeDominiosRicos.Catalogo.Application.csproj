@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Catalogo.Domain\ModelagemDeDominiosRicos.Catalogo.Domain.csproj" />
-    <ProjectReference Include="..\ModelagemDeDominiosRicos.Data\ModelagemDeDominiosRicos.Data.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Data\ModelagemDeDominiosRicos.Catalogo.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

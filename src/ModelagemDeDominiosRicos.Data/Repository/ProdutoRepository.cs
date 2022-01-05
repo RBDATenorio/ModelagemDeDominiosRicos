@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ModelagemDeDominiosRicos.Data.Repository
+namespace ModelagemDeDominiosRicos.Catalogo.Data.Repository
 {
     public class ProdutoRepository : IProdutoRepository
     {

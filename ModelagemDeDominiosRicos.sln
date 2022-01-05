@@ -32,7 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CatalogoTests", "CatalogoTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CatalogoTests", "tests\CatalogoTests\CatalogoTests.csproj", "{CF063FD8-1E28-48F6-8C4F-F856EA4279DA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelagemDeDominiosRicos.Data", "src\ModelagemDeDominiosRicos.Data\ModelagemDeDominiosRicos.Data.csproj", "{FB869731-2EF5-4897-AEB6-54A4D8813723}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelagemDeDominiosRicos.Catalogo.Data", "src\ModelagemDeDominiosRicos.Data\ModelagemDeDominiosRicos.Catalogo.Data.csproj", "{FB869731-2EF5-4897-AEB6-54A4D8813723}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelagemDeDominiosRicos.Catalogo.Application", "src\ModelagemDeDominiosRicos.Catalogo.Application\ModelagemDeDominiosRicos.Catalogo.Application.csproj", "{BF414847-E507-40DC-9B59-B4B4D344666E}"
 EndProject

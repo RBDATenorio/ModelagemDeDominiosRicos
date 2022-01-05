@@ -6,7 +6,7 @@ using ModelagemDeDominiosRicos.Catalogo.Domain.Events;
 using ModelagemDeDominiosRicos.Catalogo.Domain.Interfaces;
 using ModelagemDeDominiosRicos.Core.Communication;
 using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
-using ModelagemDeDominiosRicos.Data.Repository;
+using ModelagemDeDominiosRicos.Catalogo.Data.Repository;
 using ModelagemDeDominiosRicos.Vendas.Application.Commands;
 using ModelagemDeDominiosRicos.Vendas.Application.Events;
 using ModelagemDeDominiosRicos.Vendas.Application.Queries;

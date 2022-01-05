@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ModelagemDeDominiosRicos.Catalogo.Domain;
 
-namespace ModelagemDeDominiosRicos.Data.Mappings
+namespace ModelagemDeDominiosRicos.Catalogo.Data.Mappings
 {
     public class CategoriaMapping : IEntityTypeConfiguration<Categoria>
     {
