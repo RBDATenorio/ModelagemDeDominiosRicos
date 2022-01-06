@@ -20,6 +20,9 @@
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Catalogo.Domain\ModelagemDeDominiosRicos.Catalogo.Domain.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Core\ModelagemDeDominiosRicos.Core.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Catalogo.Data\ModelagemDeDominiosRicos.Catalogo.Data.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Pagamentos.AntiCorruption\ModelagemDeDominiosRicos.Pagamentos.AntiCorruption.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Pagamentos.Business\ModelagemDeDominiosRicos.Pagamentos.Business.csproj" />
+    <ProjectReference Include="..\ModelagemDeDominiosRicos.Pagamentos.Data\ModelagemDeDominiosRicos.Pagamentos.Data.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Vendas.Application\ModelagemDeDominiosRicos.Vendas.Application.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Vendas.Data\ModelagemDeDominiosRicos.Vendas.Data.csproj" />
     <ProjectReference Include="..\ModelagemDeDominiosRicos.Vendas.Domain\ModelagemDeDominiosRicos.Vendas.Domain.csproj" />

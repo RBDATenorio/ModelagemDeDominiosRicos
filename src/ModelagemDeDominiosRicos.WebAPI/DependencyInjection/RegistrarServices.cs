@@ -12,6 +12,10 @@ using ModelagemDeDominiosRicos.Vendas.Application.Events;
 using ModelagemDeDominiosRicos.Vendas.Application.Queries;
 using ModelagemDeDominiosRicos.Vendas.Data.Repository;
 using ModelagemDeDominiosRicos.Vendas.Domain;
+using ModelagemDeDominiosRicos.Pagamentos.Data.Repository;
+using ModelagemDeDominiosRicos.Pagamentos.Business;
+using ModelagemDeDominiosRicos.Pagamentos.AntiCorruption;
+using ModelagemDeDominiosRicos.Pagamentos.Data;
 
 namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
 {
@@ -43,6 +47,13 @@ namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
             services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
             services.AddScoped<INotificationHandler<PedidoRascunhoItemAdicionadoEvent>, PedidoEventHandler>();
             services.AddScoped<IPedidoQueries, PedidoQueries>();
+
+            // Pagamentos
+            services.AddScoped<IPagamentoRepository, PagamentoRepository>();
+            services.AddScoped<IPagamentoService, PagamentoService>();
+            services.AddScoped<IPagamentoCartaoCreditoFacade, PagamentoCartaoCreditoFacade>();
+            services.AddScoped<IPayPalGateway, PayPalGateway>();
+            services.AddScoped<IConfigurationManager, ConfigurationManager>();
         }
     }
 }

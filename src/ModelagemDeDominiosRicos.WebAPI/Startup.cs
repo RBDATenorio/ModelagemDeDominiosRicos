@@ -8,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using ModelagemDeDominiosRicos.WebAPI.DependencyInjection;
 using ModelagemDeDominiosRicos.Catalogo.Data;
 using ModelagemDeDominiosRicos.Vendas.Data;
+using ModelagemDeDominiosRicos.Pagamentos.Data;
 
 namespace ModelagemDeDominiosRicos.WebAPI
 {
@@ -36,7 +37,12 @@ namespace ModelagemDeDominiosRicos.WebAPI
 
             services.AddDbContext<VendasContext>(options =>
                     options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
-);
+            );
+
+            services.AddDbContext<PagamentoContext>(options =>
+                    options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
+            );
+
             services.ResolverDependencias();
         }
 
