@@ -1,10 +1,9 @@
 ﻿using ModelagemDeDominiosRicos.Core.DomainObjects.DTOs;
-using ModelagemDeDominiosRicos.Core.Messages;
 using System;
 
-namespace ModelagemDeDominiosRicos.Vendas.Application.Events
+namespace ModelagemDeDominiosRicos.Core.Messages.CommonMessages.IntegrationEvents
 {
-    public class PedidoIniciadoEvent : Event
+    public class PedidoIniciadoEvent : IntegrationEvent
     {
         public PedidoIniciadoEvent(Guid pedidoId, Guid clientId, decimal total, ListaProdutoPedido produtosPediso, string nomeCartao, string numeroCartao, string expiracaoCartao, string cvvCartao)
         {

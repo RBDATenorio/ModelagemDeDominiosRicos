@@ -3,6 +3,7 @@ using ModelagemDeDominiosRicos.Core.Communication;
 using ModelagemDeDominiosRicos.Core.DomainObjects.DTOs;
 using ModelagemDeDominiosRicos.Core.Extensions;
 using ModelagemDeDominiosRicos.Core.Messages;
+using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.IntegrationEvents;
 using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.Notifications;
 using ModelagemDeDominiosRicos.Vendas.Application.Events;
 using ModelagemDeDominiosRicos.Vendas.Domain;
