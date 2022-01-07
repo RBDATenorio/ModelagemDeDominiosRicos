@@ -15,7 +15,7 @@ using ModelagemDeDominiosRicos.Vendas.Domain;
 using ModelagemDeDominiosRicos.Pagamentos.Data.Repository;
 using ModelagemDeDominiosRicos.Pagamentos.Business;
 using ModelagemDeDominiosRicos.Pagamentos.AntiCorruption;
-using ModelagemDeDominiosRicos.Pagamentos.Data;
+using ModelagemDeDominiosRicos.Core.Messages.CommonMessages.IntegrationEvents;
 
 namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
 {
@@ -41,7 +41,7 @@ namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
             services.AddScoped<IRequestHandler<AtualizarItemPedidoCommand, bool>, PedidoCommandHandler>();
             services.AddScoped<IRequestHandler<AplicarVoucherPedidoCommand, bool>, PedidoCommandHandler>();
             services.AddScoped<IRequestHandler<RemoverItemPedidoCommand, bool>, PedidoCommandHandler>();
-
+            services.AddScoped<IRequestHandler<IniciarPedidoCommand, bool>, PedidoCommandHandler>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();
             services.AddScoped<INotificationHandler<PedidoAtualizadoEvent>, PedidoEventHandler>();
             services.AddScoped<INotificationHandler<PedidoRascunhoIniciadoEvent>, PedidoEventHandler>();
@@ -54,6 +54,12 @@ namespace ModelagemDeDominiosRicos.WebAPI.DependencyInjection
             services.AddScoped<IPagamentoCartaoCreditoFacade, PagamentoCartaoCreditoFacade>();
             services.AddScoped<IPayPalGateway, PayPalGateway>();
             services.AddScoped<IConfigurationManager, ConfigurationManager>();
+            services.AddScoped<INotificationHandler<PagamentoRealizadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PagamentoRecusadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoEstoqueRejeitadoEvent>, PedidoEventHandler>();
+            services.AddScoped<IRequestHandler<FinalizarPedidoCommand, bool>, PedidoCommandHandler>();
+            services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoEstornarEstoqueCommand, bool>, PedidoCommandHandler>();
+            services.AddScoped<IRequestHandler<CancelarProcessamentoPedidoCommand, bool>, PedidoCommandHandler>();
         }
     }
 }

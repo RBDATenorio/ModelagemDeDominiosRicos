@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace ModelagemDeDominiosRicos.Catalogo.Domain.Events
 {
     public class ProdutoEventHandler : INotificationHandler<ProdutoAbaixoEstoqueEvents>,
-                                       INotificationHandler<PedidoIniciadoEvent>
+                                       INotificationHandler<PedidoIniciadoEvent>,
+                                       INotificationHandler<PedidoProcessamentoCanceladoEvent>
     {
         private readonly IProdutoRepository _repository;
         private readonly IEstoqueService _estoqueService;
@@ -43,6 +44,11 @@ namespace ModelagemDeDominiosRicos.Catalogo.Domain.Events
             {
                 await _mediatrHandler.PublicarEvento(new PedidoEstoqueRejeitadoEvent(mensagem.PedidoId, mensagem.ClientId));
             }
+        }
+
+        public async Task Handle(PedidoProcessamentoCanceladoEvent mensagem, CancellationToken cancellationToken)
+        {
+            await _estoqueService.ReporListaProdutosPedido(mensagem.ProdutosPedido);
         }
     }
 }
