@@ -2,7 +2,7 @@
 
 ## Descrição
 
-Já ouviu falar em CQRS, Event Sourcing, Mediatr, Value Objects e Raízes de Agregação? Esses são temas abordados no conceito de Domínios Ricos e esse repositório foi construído seguindo o curso de [Modelagem de Domínios Ricos](https://desenvolvedor.io/curso-online-modelagem-de-dominios-ricos) do [Desenvolvedor.io](https://desenvolvedor.io/), e se baseia na implementação de conceitos de Domain Driven Design (DDD) com .NET. Houve adaptações do conteúdo ministrado, como por exemplo, implementação de duas bases de dados, uma para leitura e escrita (na aplicação do CQRS), uso do docker para subir os containers com os bancos de dados e não utilizei o SQL Server, mas sim o PostgreSQL.
+Já ouviu falar em CQRS, Mediatr, Value Objects e Raízes de Agregação? Esses são temas abordados no conceito de Domínios Ricos e esse repositório foi construído seguindo o curso de [Modelagem de Domínios Ricos](https://desenvolvedor.io/curso-online-modelagem-de-dominios-ricos) do [Desenvolvedor.io](https://desenvolvedor.io/), e se baseia na implementação de conceitos de Domain Driven Design (DDD) com .NET. Houve adaptações do conteúdo ministrado, como por exemplo, implementação de duas bases de dados, uma para leitura e escrita (na aplicação do CQRS), uso do docker para subir os containers com os bancos de dados e não utilizei o SQL Server, mas sim o PostgreSQL.
 
 ## Utilização
 
@@ -37,6 +37,3 @@ Update-Database
 ```
 
 Pronto, já temos as tabelas criadas no banco que estamos rodando no docker!
-
-
-
