@@ -28,7 +28,12 @@ namespace ModelagemDeDominiosRicos.WebAPI.Controllers
             _pedidoQueries = pedidoQueries;
             _mediatrHandler = mediatrHandler;
         }
-
+        /* @oas [get] /adicionar-item-carrinho
+         * description: "Adiciona item(ens) ao carrinho"
+         * parameters: 
+         *  - (query) id {String} O id do produto
+         *  - (query) quantidade {Integer} A quantidade de itens que serão adicionados 
+        */
         [HttpPost]
         [Route("adicionar-item-carrinho")]
         public async Task<IActionResult> AdicionarItem(Guid id, int quantidade)
