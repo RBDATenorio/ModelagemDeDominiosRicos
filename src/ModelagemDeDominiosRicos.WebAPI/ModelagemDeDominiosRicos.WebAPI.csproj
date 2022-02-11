@@ -32,4 +32,6 @@
 		<Exec Command="dotnet tool restore" />
 		<Exec Command="dotnet swagger tofile --output swagger.json $(OutputPath)\$(AssemblyName).dll v1 " />
 	</Target>
+
+	<ProjectExtensions><VisualStudio><UserProperties properties_4launchsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
 </Project>

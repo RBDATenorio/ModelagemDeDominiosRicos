@@ -6,7 +6,10 @@
   },
   "servers": [
     {
-      "url": "http://testeurl1.com"
+      "url": "http://localhost:5000"
+    },
+    {
+      "url": "https://40a1-179-190-170-172.ngrok.io"
     },
     {
       "url": "http://testeurl2.com"

@@ -31,7 +31,8 @@ namespace ModelagemDeDominiosRicos.WebAPI
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ModelagemDeDominiosRicos.API", Version = "v1" });
                 c.SwaggerGeneratorOptions.Servers = new List<OpenApiServer> {
-                    new() {Url = "http://testeurl1.com"},
+                    new() {Url = "http://localhost:5000"},
+                    new() {Url = "https://40a1-179-190-170-172.ngrok.io"},
                     new() {Url = "http://testeurl2.com"} };
             });
 
