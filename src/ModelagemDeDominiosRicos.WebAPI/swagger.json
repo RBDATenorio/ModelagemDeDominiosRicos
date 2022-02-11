@@ -16,6 +16,18 @@
     }
   ],
   "paths": {
+    "/api/AdminProdutos/testes": {
+      "get": {
+        "tags": [
+          "AdminProdutos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/AdminProdutos": {
       "get": {
         "tags": [

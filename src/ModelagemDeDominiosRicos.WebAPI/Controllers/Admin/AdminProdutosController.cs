@@ -17,6 +17,13 @@ namespace ModelagemDeDominiosRicos.WebAPI.Controllers.Admin
         }
 
         [HttpGet]
+        [Route("testes")]
+        public async Task<IActionResult> Teste()
+        {
+            return Ok();
+        }
+
+        [HttpGet]
         public async Task<IActionResult> ObterTodos()
         {
             return Ok(await _produtoAppService.ObterTodos());
