@@ -27,6 +27,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
   readme:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,5 +36,5 @@ jobs:
           readme-oas-key: ${{ secrets.README_OAS_KEY }}
            
           # OPTIONAL CONFIG, use if necessary
-          # oas-file-path: './swagger.json'
-          # api-version: 'v1.0.0'
+          oas-file-path: './src/ModelagemDeDominiosRicos.WebAPI/swagger.json'
+          api-version: 'v1.0.0'
