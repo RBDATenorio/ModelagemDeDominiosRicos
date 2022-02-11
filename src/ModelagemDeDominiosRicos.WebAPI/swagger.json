@@ -1,0 +1,498 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ModelagemDeDominiosRicos.API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://testeurl1.com"
+    },
+    {
+      "url": "http://testeurl2.com"
+    }
+  ],
+  "paths": {
+    "/api/AdminProdutos": {
+      "get": {
+        "tags": [
+          "AdminProdutos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/AdminProdutos/detalhe/{id}": {
+      "get": {
+        "tags": [
+          "AdminProdutos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/AdminProdutos/cadastrar-produto": {
+      "post": {
+        "tags": [
+          "AdminProdutos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProdutoDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProdutoDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProdutoDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/AdminProdutos/cadastrar-categoria": {
+      "post": {
+        "tags": [
+          "AdminProdutos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CategoriaDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/AdminProdutos/atualizar-estoque": {
+      "post": {
+        "tags": [
+          "AdminProdutos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Carrinhos/adicionar-item-carrinho": {
+      "post": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Carrinhos/meu-carrinho": {
+      "get": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Carrinhos/remover-item": {
+      "delete": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "parameters": [
+          {
+            "name": "produtoId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "pedidoId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Carrinhos/atualizar-carrinho": {
+      "put": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "parameters": [
+          {
+            "name": "produtoId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "pedidoId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "quantidade",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Carrinhos/aplicar-voucher": {
+      "post": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "parameters": [
+          {
+            "name": "codigoVoucher",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Carrinhos/iniciar-pedido": {
+      "post": {
+        "tags": [
+          "Carrinhos"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrinhoDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrinhoDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CarrinhoDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CategoriaDTO": {
+        "required": [
+          "codigo",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "codigo": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProdutoDTO": {
+        "required": [
+          "altura",
+          "ativo",
+          "categoriaId",
+          "dataCadastro",
+          "descricao",
+          "imagem",
+          "largura",
+          "nome",
+          "profundidade",
+          "quantidadeEmEstoque",
+          "valor"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "categoriaId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "ativo": {
+            "type": "boolean"
+          },
+          "valor": {
+            "type": "number",
+            "format": "double"
+          },
+          "dataCadastro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "imagem": {
+            "type": "string"
+          },
+          "quantidadeEmEstoque": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "altura": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "largura": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "profundidade": {
+            "maximum": 2147483647,
+            "minimum": 1,
+            "type": "integer",
+            "format": "int32"
+          },
+          "categorias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoriaDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrinhoItemDTO": {
+        "type": "object",
+        "properties": {
+          "produtoId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "produtoNome": {
+            "type": "string",
+            "nullable": true
+          },
+          "quantidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "valorUnitario": {
+            "type": "number",
+            "format": "double"
+          },
+          "valorTotal": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrinhoPagamentoDTO": {
+        "type": "object",
+        "properties": {
+          "nomeCartao": {
+            "type": "string",
+            "nullable": true
+          },
+          "numeroCartao": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiracaoCartao": {
+            "type": "string",
+            "nullable": true
+          },
+          "cvvCartao": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CarrinhoDTO": {
+        "type": "object",
+        "properties": {
+          "pedidoId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "clienteId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "subTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "valorTotal": {
+            "type": "number",
+            "format": "double"
+          },
+          "valorDesconto": {
+            "type": "number",
+            "format": "double"
+          },
+          "voucherCodigo": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CarrinhoItemDTO"
+            },
+            "nullable": true
+          },
+          "pagamento": {
+            "$ref": "#/components/schemas/CarrinhoPagamentoDTO"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
