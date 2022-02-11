@@ -9,6 +9,7 @@ using ModelagemDeDominiosRicos.WebAPI.DependencyInjection;
 using ModelagemDeDominiosRicos.Catalogo.Data;
 using ModelagemDeDominiosRicos.Vendas.Data;
 using ModelagemDeDominiosRicos.Pagamentos.Data;
+using System.Collections.Generic;
 
 namespace ModelagemDeDominiosRicos.WebAPI
 {
@@ -29,6 +30,9 @@ namespace ModelagemDeDominiosRicos.WebAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ModelagemDeDominiosRicos.API", Version = "v1" });
+                c.SwaggerGeneratorOptions.Servers = new List<OpenApiServer> {
+                    new() {Url = "http://testeurl1.com"},
+                    new() {Url = "http://testeurl2.com"} };
             });
 
             services.AddDbContext<CatalogoContext>(options =>
