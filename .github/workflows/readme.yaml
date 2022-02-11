@@ -23,7 +23,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
         working-directory: DominiosRicos
     
-jobs:
+
   readme:
     runs-on: ubuntu-latest
     steps:
